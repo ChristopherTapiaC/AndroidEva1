@@ -8,7 +8,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logo_bitcoins"
+            android:contentDescription="Logo de la aplicación"
+            android:layout_marginBottom="12dp"/>
 
         <!-- Nombre completo -->
         <com.google.android.material.textfield.TextInputLayout

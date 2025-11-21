@@ -22,6 +22,9 @@
         </activity>
         <activity android:name=".RecoverActivity"/>
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".AddNewsActivity"/>
+        <activity android:name=".NewsDetailActivity"/>
     </application>
 
 </manifest>

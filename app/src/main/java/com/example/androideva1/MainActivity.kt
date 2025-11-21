@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         buttonLogin.setOnClickListener {
             if (validateLogin()) {
                 Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show()
+                goToHome()
             }
         }
 
@@ -72,4 +73,10 @@ class MainActivity : AppCompatActivity() {
 
         return isValid
     }
+
+    private fun goToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+    }
+
 }
