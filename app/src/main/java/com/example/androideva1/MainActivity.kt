@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         // Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-        // Referencias a la vista (ajusta ids si tus nombres son distintos)
+        // Referencias a la vista
         textInputLayoutUsername = findViewById(R.id.textInputLayoutUsername)
         textInputLayoutPassword = findViewById(R.id.textInputLayoutPassword)
         editTextUsername = findViewById(R.id.editTextUsername)
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // Recuperar contraseña (de momento sigue yendo a tu activity de recuperar)
+        // Recuperar contraseña
         textViewRecoverPassword.setOnClickListener {
             startActivity(Intent(this, RecoverActivity::class.java))
         }
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        // Si ya hay usuario logueado, ir directo al Home (opcional pero bonito)
+        // Si ya hay usuario logueado, ir directo al Home
         val currentUser = auth.currentUser
         if (currentUser != null) {
             goToHome()

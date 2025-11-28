@@ -3,16 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
 
     <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbarDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorMostaza"
+        app:titleTextColor="@color/colorTextLight"
+        app:navigationIconTint="@color/colorTextLight"
         app:title="Detalle de noticia"
-        app:titleTextColor="@android:color/white"
         app:navigationIcon="@drawable/ic_arrow_back"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 

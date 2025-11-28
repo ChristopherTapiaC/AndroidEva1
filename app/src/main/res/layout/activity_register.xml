@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:background="@color/colorBackground">
 
         <!-- Logo -->
         <ImageView
@@ -96,14 +97,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Crear cuenta"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorMostaza"
+            android:textColor="@color/colorTextLight" />
 
         <Button
             android:id="@+id/buttonBackToLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Volver al login"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorMostaza"
+            android:textColor="@color/colorTextLight" />
 
     </LinearLayout>
 </ScrollView>

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Fondo general oscuro -->
+    <color name="colorBackground">#3D3D3D</color>
+
+    <!-- Mostaza -->
+    <color name="colorMostaza">#D4A017</color>
+
+    <!-- Texto claro -->
+    <color name="colorTextLight">#FFFFFF</color>
+
 </resources>

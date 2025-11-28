@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:background="@color/colorBackground">
 
         <!-- Logo -->
         <ImageView
@@ -54,7 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Iniciar sesión"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorMostaza"
+            android:textColor="@color/colorTextLight" />
 
         <!-- Enlace Crear Cuenta -->
         <TextView

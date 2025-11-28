@@ -117,7 +117,7 @@ class RegisterActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Cuenta creada correctamente", Toast.LENGTH_SHORT).show()
 
-                    // Cerrar sesión para que pruebe el login manual
+                    // Cerrar sesión para probar el login manual
                     auth.signOut()
 
                     startActivity(Intent(this, MainActivity::class.java))
