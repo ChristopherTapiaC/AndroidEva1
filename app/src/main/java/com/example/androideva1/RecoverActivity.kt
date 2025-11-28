@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
 
 class RecoverActivity : AppCompatActivity() {
 
@@ -16,41 +16,52 @@ class RecoverActivity : AppCompatActivity() {
     private lateinit var buttonRecoverPassword: Button
     private lateinit var buttonBackToLoginRecover: Button
 
+    private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recover)
 
-        // Referencias
+        // Referencias a la vista
         textInputLayoutRecoverEmail = findViewById(R.id.textInputLayoutRecoverEmail)
         editTextRecoverEmail = findViewById(R.id.editTextRecoverEmail)
         buttonRecoverPassword = findViewById(R.id.buttonRecoverPassword)
         buttonBackToLoginRecover = findViewById(R.id.buttonBackToLoginRecover)
 
-        // Quitar error al escribir
-        editTextRecoverEmail.doAfterTextChanged { textInputLayoutRecoverEmail.error = null }
-
-        // Botón Recuperar
+        // Botón: Recuperar contraseña
         buttonRecoverPassword.setOnClickListener {
-            if (validateRecoverForm()) {
-                Toast.makeText(this, "Se ha enviado un correo de recuperación", Toast.LENGTH_SHORT).show()
+            val email = editTextRecoverEmail.text.toString().trim()
+
+            if (email.isEmpty()) {
+                textInputLayoutRecoverEmail.error = "Ingresa tu correo"
+                return@setOnClickListener
+            } else {
+                textInputLayoutRecoverEmail.error = null
             }
+
+            auth.sendPasswordResetEmail(email)
+                .addOnSuccessListener {
+                    Toast.makeText(
+                        this,
+                        "Hemos enviado un correo para restablecer tu contraseña.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    // Opcional: volver al login
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(
+                        this,
+                        "No existe una cuenta con ese correo.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
         }
 
-        // Botón Volver
+        // Botón: Volver al login
         buttonBackToLoginRecover.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
-    }
-
-    private fun validateRecoverForm(): Boolean {
-        var isValid = true
-        val email = editTextRecoverEmail.text?.toString()?.trim().orEmpty()
-
-        if (email.isEmpty()) {
-            textInputLayoutRecoverEmail.error = "Ingrese su correo electrónico"
-            isValid = false
-        }
-
-        return isValid
     }
 }

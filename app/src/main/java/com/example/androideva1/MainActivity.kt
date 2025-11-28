@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,11 +21,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewCreateAccount: TextView
     private lateinit var textViewRecoverPassword: TextView
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Referencias a las vistas
+        // Firebase Auth
+        auth = FirebaseAuth.getInstance()
+
+        // Referencias a la vista (ajusta ids si tus nombres son distintos)
         textInputLayoutUsername = findViewById(R.id.textInputLayoutUsername)
         textInputLayoutPassword = findViewById(R.id.textInputLayoutPassword)
         editTextUsername = findViewById(R.id.editTextUsername)
@@ -33,36 +39,48 @@ class MainActivity : AppCompatActivity() {
         textViewCreateAccount = findViewById(R.id.textViewCreateAccount)
         textViewRecoverPassword = findViewById(R.id.textViewRecoverPassword)
 
-        // Quitar errores al escribir
+        // Limpiar errores al escribir
         editTextUsername.doAfterTextChanged { textInputLayoutUsername.error = null }
         editTextPassword.doAfterTextChanged { textInputLayoutPassword.error = null }
 
-        // Botón de login con validación
+        // Botón Iniciar sesión
         buttonLogin.setOnClickListener {
-            if (validateLogin()) {
-                Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show()
-                goToHome()
+            if (validateLoginForm()) {
+                val email = editTextUsername.text?.toString()?.trim().orEmpty()
+                val password = editTextPassword.text?.toString()?.trim().orEmpty()
+
+                signInWithFirebase(email, password)
             }
         }
 
-        // Navegación a Crear cuenta
+        // Crear cuenta
         textViewCreateAccount.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // Navegación a Recuperar contraseña
+        // Recuperar contraseña (de momento sigue yendo a tu activity de recuperar)
         textViewRecoverPassword.setOnClickListener {
             startActivity(Intent(this, RecoverActivity::class.java))
         }
     }
 
-    private fun validateLogin(): Boolean {
+    override fun onStart() {
+        super.onStart()
+        // Si ya hay usuario logueado, ir directo al Home (opcional pero bonito)
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            goToHome()
+        }
+    }
+
+    private fun validateLoginForm(): Boolean {
         var isValid = true
-        val username = editTextUsername.text?.toString()?.trim().orEmpty()
+
+        val email = editTextUsername.text?.toString()?.trim().orEmpty()
         val password = editTextPassword.text?.toString()?.trim().orEmpty()
 
-        if (username.isEmpty()) {
-            textInputLayoutUsername.error = "Ingrese su usuario"
+        if (email.isEmpty()) {
+            textInputLayoutUsername.error = "Ingrese su correo"
             isValid = false
         }
 
@@ -74,9 +92,25 @@ class MainActivity : AppCompatActivity() {
         return isValid
     }
 
-    private fun goToHome() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
+    private fun signInWithFirebase(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show()
+                    goToHome()
+                } else {
+                    val message = task.exception?.localizedMessage
+                        ?: "Error al iniciar sesión"
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                }
+            }
     }
 
+    private fun goToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        // opcional: limpiar el backstack para que no vuelva al login con atrás
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
+    }
 }
