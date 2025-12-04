@@ -25,6 +25,9 @@
             android:id="@+id/tilTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Título">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -38,6 +41,9 @@
             android:id="@+id/tilDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Descripción"
             android:layout_marginTop="12dp">
 
@@ -54,11 +60,15 @@
             android:id="@+id/tilImageUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="URL de imagen (opcional)"
             android:layout_marginTop="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etImageUrl"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>

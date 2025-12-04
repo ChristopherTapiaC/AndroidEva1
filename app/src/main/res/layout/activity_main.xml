@@ -26,10 +26,14 @@
             android:id="@+id/textInputLayoutUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Usuario">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextUsername"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -39,11 +43,15 @@
             android:id="@+id/textInputLayoutPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Contraseña"
             app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPassword"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"/>

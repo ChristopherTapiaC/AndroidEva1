@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Fondo general oscuro -->
-    <color name="colorBackground">#3D3D3D</color>
+    <color name="colorBackground">#161616</color>
+
+    <!-- Fondo gris -->
+    <color name="colorCard">#333333</color>
 
     <!-- Mostaza -->
     <color name="colorMostaza">#D4A017</color>

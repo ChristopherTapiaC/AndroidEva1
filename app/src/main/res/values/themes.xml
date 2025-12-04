@@ -1,12 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
     <style name="Base.Theme.AndroidEva1" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/colorBackground</item>
         <item name="android:textColor">@color/colorTextLight</item>
+        <item name="textAppearanceHeadline6">@style/WhiteTextAppearance</item>
+        <item name="textAppearanceBody1">@style/WhiteTextAppearance</item>
+        <item name="textAppearanceBody2">@style/WhiteTextAppearance</item>
+    </style>
 
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="WhiteTextAppearance" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/colorTextLight</item>
     </style>
 
     <style name="Theme.AndroidEva1" parent="Base.Theme.AndroidEva1" />
+
+    <!-- Estilo para EditText dentro del TextInputLayout -->
+    <style name="EditText.Mostaza" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/colorTextLight</item>
+        <item name="android:textColorHint">@color/colorTextLight</item>
+    </style>
+
 </resources>

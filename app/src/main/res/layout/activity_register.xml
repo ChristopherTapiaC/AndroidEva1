@@ -26,10 +26,14 @@
             android:id="@+id/textInputLayoutFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Nombre completo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextFullName"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -39,10 +43,14 @@
             android:id="@+id/textInputLayoutEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Correo electrónico">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextEmail"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"/>
@@ -53,10 +61,14 @@
             android:id="@+id/textInputLayoutPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Teléfono">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPhone"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"/>
@@ -67,10 +79,14 @@
             android:id="@+id/textInputLayoutAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Dirección">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextAddress"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -80,11 +96,15 @@
             android:id="@+id/textInputLayoutPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:layout_marginTop="10dp"
             android:hint="Contraseña">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPassword"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"/>

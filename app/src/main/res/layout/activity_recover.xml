@@ -26,10 +26,14 @@
             android:id="@+id/textInputLayoutRecoverEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/stroke_selector"
+            app:hintTextColor="@color/colorMostaza"
+            app:cursorColor="@color/colorMostaza"
             android:hint="Correo electrónico">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextRecoverEmail"
+                android:textColor="@color/colorTextLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"/>

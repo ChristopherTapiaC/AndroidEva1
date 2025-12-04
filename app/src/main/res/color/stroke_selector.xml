@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Con foco -->
+    <item android:state_focused="true"
+        android:color="@color/colorMostaza"/>
+    <!-- Sin foco (predeterminado) -->
+    <item android:color="@color/colorCard"/>
+</selector>
